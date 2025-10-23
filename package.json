@@ -1,0 +1,24 @@
+{
+  "name": "bookmarklets",
+  "private": true,
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "prebuild": "bun clean",
+    "pretest": "bun typecheck && bun lint",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint",
+    "format": "dprint fmt",
+    "build": "bun build.js"
+  },
+  "devDependencies": {
+    "@types/bun": "1.3.0",
+    "dprint": "0.50.2",
+    "oxlint": "1.24.0"
+  },
+  "peerDependencies": {
+    "typescript": "5.9.3"
+  }
+}
