@@ -5,11 +5,37 @@
 
   const plainTextWindow = createPlainTextWindow();
 
-  if (plainTextWindow) {
-    plainTextWindow.document.write(
-      '<pre id="plainText" style="white-space: pre-wrap; word-wrap: break-word; margin: 10px; font-family: monospace;">Loading plain text...</pre>',
-    );
+  if (!plainTextWindow) {
+    return;
   }
+
+  const doc = plainTextWindow.document;
+  doc.open();
+
+  if (!doc.documentElement) {
+    const html = doc.createElement("html");
+    const head = doc.createElement("head");
+    const meta = doc.createElement("meta");
+    meta.setAttribute("charset", "utf-8");
+    head.appendChild(meta);
+
+    const body = doc.createElement("body");
+
+    html.appendChild(head);
+    html.appendChild(body);
+    doc.appendChild(html);
+  }
+
+  const pre = doc.createElement("pre");
+  pre.id = "plainText";
+  pre.textContent = "Loading plain text...";
+  pre.style.whiteSpace = "pre-wrap";
+  pre.style.overflowWrap = "break-word";
+  pre.style.margin = "10px";
+  pre.style.fontFamily = "monospace";
+
+  doc.body.appendChild(pre);
+  doc.close();
 
   const getSanitizedClone = (): HTMLElement => {
     const pageClone = document.body.cloneNode(true) as HTMLElement;
@@ -41,16 +67,16 @@
         if (child instanceof Text) {
           return child.textContent ?? "";
         }
+
         return "";
       })
       .filter((line) => line.trim() !== "")
       .join("\n");
 
   const strippedText = extractPlainText(pageClone);
-  const plainTextElement =
-    plainTextWindow?.document.getElementById("plainText");
+  const plainTextElement = doc.getElementById("plainText");
+
   if (plainTextElement) {
     plainTextElement.textContent = strippedText;
   }
-  plainTextWindow?.document.close();
 })();
