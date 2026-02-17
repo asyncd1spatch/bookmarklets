@@ -1,0 +1,38 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>Bookmarklets</title>
+      <style>
+        body { font-family: sans-serif; padding: 2rem; background-color: #f4f4f9; }
+        h1 { color: #333; }
+        p { color: #555; margin-bottom: 2rem; }
+        a {
+          display: inline-block;
+          padding: 10px 15px;
+          margin: 5px;
+          background-color: #007bff;
+          color: white;
+          text-decoration: none;
+          border-radius: 5px;
+          font-weight: bold;
+          transition: background-color 0.2s;
+        }
+        a:hover { background-color: #0056b3; }
+      </style>
+    </head>
+    <body>
+      <h1>Your Bookmarklets</h1>
+      <p>Drag any of these links to your bookmarks bar.</p>
+      <div>
+        <a href="javascript:(function()%7Bdocument.body.style.filter%3D%22invert(100%25)%22%7D)()">invert</a>
+        <a href="javascript:(function()%7B(()%3D%3E%7Bconst%20l%3De%3D%3E%7Bconst%20n%3De.documentElement.clientWidth*e.documentElement.clientHeight%3Be.querySelectorAll(%22*%22).forEach(c%3D%3E%7Bconst%20i%3Dc.getBoundingClientRect()%3Bi.width*i.height%2Fn%3E.1%26%26%5B%22fixed%22%2C%22absolute%22%5D.includes(window.getComputedStyle(c).position)%26%26c.remove()%7D)%7D%2Co%3De%3D%3E%7Btry%7Bif(!e%7C%7C!e.document)return%3Bl(e.document)%3Bfor(let%20t%3D0%3Bt%3Ce.frames.length%3Bt%2B%2B)%7Bconst%20n%3De.frames%5Bt%5D%3Bn%26%26o(n)%7D%7Dcatch%7Bconsole.log(%22Could%20not%20access%20a%20frame%2C%20likely%20due%20to%20cross-origin%20policy.%22)%7D%7D%3Bo(window)%7D)()%7D)()">overnihil</a>
+        <a href="javascript:(function()%7B(()%3D%3E%7Bconst%20r%3Dwindow.open(%22%22%2C%22_blank%22%2C%22width%3D800%2Cheight%3D600%22)%3Bif(!r)return%3Bconst%20t%3Dr.document%3Bif(t.open()%2C!t.documentElement)%7Bconst%20n%3Dt.createElement(%22html%22)%2Ce%3Dt.createElement(%22head%22)%2Ci%3Dt.createElement(%22meta%22)%3Bi.setAttribute(%22charset%22%2C%22utf-8%22)%2Ce.appendChild(i)%3Bconst%20d%3Dt.createElement(%22body%22)%3Bn.appendChild(e)%2Cn.appendChild(d)%2Ct.appendChild(n)%7Dconst%20o%3Dt.createElement(%22pre%22)%3Bo.id%3D%22plainText%22%2Co.textContent%3D%22Loading%20plain%20text...%22%2Co.style.whiteSpace%3D%22pre-wrap%22%2Co.style.overflowWrap%3D%22break-word%22%2Co.style.margin%3D%2210px%22%2Co.style.fontFamily%3D%22monospace%22%2Ct.body.appendChild(o)%2Ct.close()%3Bconst%20l%3D(()%3D%3E%7Bconst%20n%3Ddocument.body.cloneNode(!0)%3Breturn%20n.querySelectorAll(%22script%2C%20style%2C%20noscript%2C%20iframe%22).forEach(e%3D%3Ee.remove())%2Cn.querySelectorAll(%22br%22).forEach(e%3D%3E%7Be.replaceWith(%60%0A%60)%7D)%2Cn.querySelectorAll(%22p%2C%20div%22).forEach(e%3D%3E%7Be.insertAdjacentText(%22beforeend%22%2C%60%0A%60)%7D)%2Cn%7D)()%2Cc%3D(n%3D%3EArray.from(n.childNodes).map(e%3D%3Ee%20instanceof%20HTMLElement%3Fe.innerText%3Ae%20instanceof%20Text%3Fe.textContent%3F%3F%22%22%3A%22%22).filter(e%3D%3Ee.trim()!%3D%3D%22%22).join(%60%0A%60))(l)%2Ca%3Dt.getElementById(%22plainText%22)%3Ba%26%26(a.textContent%3Dc)%7D)()%7D)()">strip</a>
+        <a href="javascript:(function()%7B(r%3D%3E%7Bfor(const%20e%20of%20Array.from(r))if(e%20instanceof%20HTMLMediaElement%26%26e.currentSrc)%7Bwindow.open(e.currentSrc)%3Breturn%7D%7D)(document.querySelectorAll(%22audio%2C%20video%22))%7D)()">video</a>
+        <a href="javascript:(function()%7B(()%3D%3E%7Bconst%20i%3D%5B%22mousedown%22%2C%22mouseup%22%2C%22click%22%2C%22dragstart%22%2C%22selectstart%22%2C%22contextmenu%22%2C%22copy%22%2C%22paste%22%2C%22cut%22%2C%22keydown%22%2C%22keyup%22%2C%22keypress%22%2C%22beforeprint%22%2C%22afterprint%22%5D%2Cl%3De%3D%3E%7Be.designMode%3D%22on%22%2Ce.defaultView%26%26(e.defaultView.onbeforeunload%3Dnull)%2Ce.querySelectorAll(%22audio%2C%20video%22).forEach(n%3D%3E%7Bn%20instanceof%20HTMLMediaElement%26%26n.pause()%7D)%2Ce.querySelectorAll(%22script%22).forEach(n%3D%3En.remove())%2Ce.oncontextmenu%3De.onselectstart%3De.ondragstart%3De.onmousedown%3Dnull%2Ce.body%26%26(e.body.oncontextmenu%3De.body.onselectstart%3De.body.ondragstart%3De.body.onmousedown%3De.body.oncut%3De.body.oncopy%3De.body.onpaste%3Dnull)%2Ci.forEach(n%3D%3E%7Be.addEventListener(n%2Ct%3D%3E%7Bt.stopImmediatePropagation()%7D%2C!0)%7D)%2Ce.querySelectorAll(%22*%22).forEach(n%3D%3E%7B(n%20instanceof%20HTMLElement%7C%7Cn%20instanceof%20SVGElement)%26%26(n.style.cursor%3D%22auto%22%2Cn.style.userSelect%3D%22auto%22)%7D)%2Ce.querySelectorAll('style%2C%20link%5Brel%3D%22stylesheet%22%5D').forEach(n%3D%3E%7Bif(n%20instanceof%20HTMLStyleElement%7C%7Cn%20instanceof%20HTMLLinkElement)%7Bconst%20t%3Dn.sheet%3Bif(t)try%7Bfor(let%20o%3Dt.cssRules.length-1%3Bo%3E%3D0%3Bo--)%7Bconst%20r%3Dt.cssRules%5Bo%5D%3Br%20instanceof%20CSSMediaRule%26%26r.media.mediaText.includes(%22print%22)%26%26t.deleteRule(o)%7D%7Dcatch(o)%7Bo%20instanceof%20Error%26%26console.warn(%60Could%20not%20process%20a%20stylesheet%3A%20%24%7Bo.message%7D%60)%7D%7D%7D)%2Ce.querySelectorAll('link%5Brel%3D%22stylesheet%22%5D%5Bmedia%3D%22print%22%5D').forEach(n%3D%3En.remove())%7D%2Cs%3De%3D%3E%7Btry%7Bif(!e%3F.document)return%3Bl(e.document)%3Bfor(let%20n%3D0%3Bn%3Ce.frames.length%3Bn%2B%2B)%7Bconst%20t%3De.frames%5Bn%5D%3Bt%26%26s(t)%7D%7Dcatch%7Bconsole.log(%22Could%20not%20access%20a%20frame%2C%20likely%20due%20to%20cross-origin%20policy.%22)%7D%7D%3Bwindow.oncontextmenu%3Dwindow.onselectstart%3Dwindow.ondragstart%3Dwindow.onmousedown%3Dwindow.oncopy%3Dwindow.onpaste%3Dwindow.onbeforeprint%3Dwindow.onafterprint%3Dnull%2Cwindow.print%3DFunction.prototype.bind.call(window.print%2Cwindow)%2Cs(window)%7D)()%7D)()">waste removal</a>
+        <a href="javascript:(function()%7B(()%3D%3E%7BObject.defineProperty(window%2C%22outerWidth%22%2C%7Bget%3A()%3D%3Ewindow.screen.width%2Cset%3Ae%3D%3E%7B%7D%7D)%2CObject.defineProperty(window%2C%22innerWidth%22%2C%7Bget%3A()%3D%3Ewindow.screen.width%2Cset%3Ae%3D%3E%7B%7D%7D)%2C%5B%22log%22%2C%22warn%22%2C%22error%22%2C%22debug%22%2C%22info%22%2C%22trace%22%2C%22dir%22%2C%22dirxml%22%2C%22table%22%2C%22count%22%2C%22assert%22%2C%22group%22%2C%22groupCollapsed%22%2C%22groupEnd%22%2C%22time%22%2C%22timeEnd%22%2C%22profile%22%2C%22profileEnd%22%2C%22timeStamp%22%2C%22context%22%5D.forEach(e%3D%3E%7Bconsole%5Be%5D%3D()%3D%3E%7B%7D%7D)%3Bconst%20t%3DsetInterval(()%3D%3E%7B%7D%2C9999)%3Bfor(let%20e%3D1%3Be%3Ct%3Be%2B%2B)clearInterval(e)%3Bconst%20o%3DsetTimeout(()%3D%3E%7B%7D%2C9999)%3Bfor(let%20e%3D1%3Be%3Co%3Be%2B%2B)clearTimeout(e)%7D)()%7D)()">youwillbedebugged</a>
+      </div>
+    </body>
+    </html>
+  

@@ -1,0 +1,1 @@
+javascript:(function()%7B(r%3D%3E%7Bfor(const%20e%20of%20Array.from(r))if(e%20instanceof%20HTMLMediaElement%26%26e.currentSrc)%7Bwindow.open(e.currentSrc)%3Breturn%7D%7D)(document.querySelectorAll(%22audio%2C%20video%22))%7D)()
